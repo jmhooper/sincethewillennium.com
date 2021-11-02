@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <title>Since the Willennium</title>
+    <style>
+      body {
+        display: inline-block;
+        margin: 0;
+        background-color: black;
+      }
+
+      html {
+        font-family: 'Roboto', sans-serif;
+        color: #768b44;
+      }
+
+      img {
+        width: 300px;
+        height: 300px;
+      }
+
+      h1 {
+        display: inline-block;
+        font-weight: normal;
+        text-align: justify;
+        padding: 1.5rem 0.75rem;
+        width: 500px;
+      }
+
+      strong {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <img src='https://upload.wikimedia.org/wikipedia/en/c/c1/WillSmith-Willennium.jpg'>
+    <h1>
+      It has been....</br>
+      <small>
+        <strong id='days'></strong> days</br>
+        <strong id='hours'></strong> hours</br>
+        <strong id='minutes'></strong> minutes</br>
+        and <strong id='seconds'></strong> seconds</br>
+      </small>
+      ...since The Willennium
+    </h1>
+  </body>
+  <script>
+    var willennium = new Date(942710400000);
+
+    function calculateOffset() {
+      var offset = (new Date().getTime() - willennium.getTime()) / 1000;
+
+      var days = Math.floor(offset / (24 * 60 * 60));
+      var hours = Math.floor((offset / (60 * 60)) % 24);
+      var minutes = Math.floor((offset / 60) % 60);
+      var seconds = Math.floor(offset % 60);
+
+      document.getElementById('days').innerHTML = '' + days;
+      document.getElementById('hours').innerHTML = '' + hours;
+      document.getElementById('minutes').innerHTML = '' + minutes;
+      document.getElementById('seconds').innerHTML = '' + seconds;
+    }
+
+    calculateOffset();
+
+    setInterval(calculateOffset, 1000);
+  </script>
+</html>

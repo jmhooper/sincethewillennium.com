@@ -46,7 +46,8 @@
     </h1>
   </body>
   <script>
-    var willennium = new Date(942710400000);
+    // November 16th, 1999 @ Midnight in Philadelphia
+    var willennium = new Date(942710400000 + 5 * 3600 * 1000);
 
     function calculateOffset() {
       var offset = (new Date().getTime() - willennium.getTime()) / 1000;
